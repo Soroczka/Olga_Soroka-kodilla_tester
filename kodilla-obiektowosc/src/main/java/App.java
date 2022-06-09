@@ -43,7 +43,7 @@ public class App {
         User user5 = new User("Zygfryd", 55);
         User[] users = {user1, user2, user3, user4, user5};
 
-        for (int i = 0; i < 5; i++){
+        for (int i = 0; i < users.length; i++){
             System.out.println("Name: "+users[i].getName()+", age:"+users[i].getAge());
         }
 
