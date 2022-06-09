@@ -33,6 +33,28 @@ public class App {
         System.out.println(grades.returnLastGrade());
         System.out.println(grades.returnGradesAverage());
 
+        // user
+
+        System.out.println("adding users");
+        User user1 = new User("Kasia", 15);
+        User user2 = new User("Zosia", 20);
+        User user3 = new User("Krystian", 18);
+        User user4 = new User("Zbyszek", 33);
+        User user5 = new User("Zygfryd", 55);
+        User[] users = {user1, user2, user3, user4, user5};
+
+        for (int i = 0; i < 5; i++){
+            System.out.println("Name: "+users[i].getName()+", age:"+users[i].getAge());
+        }
+
+        //random
+
+        System.out.println("Random numbers");
+
+        RandomNumbers randomNumbers = new RandomNumbers();
+        randomNumbers.generateRandomNumber();
+        System.out.println(randomNumbers.getFirstNumber());
+        System.out.println(randomNumbers.getLastNumber());
 
     }
 }
