@@ -56,5 +56,15 @@ public class App {
         System.out.println(randomNumbers.getFirstNumber());
         System.out.println(randomNumbers.getLastNumber());
 
+        //human
+
+        System.out.println("Creating a person");
+        HumanValidator humanValidator = new HumanValidator();
+        Human human1 = new Human("Kazik", 22, 178.1);
+        Human human2 = new Human("Grażynka", 33.5, 159.9);
+
+        humanValidator.validAPerson(human1, 20, 180);
+        humanValidator.validAPerson(human2, 40, 150.5);
+
     }
 }
