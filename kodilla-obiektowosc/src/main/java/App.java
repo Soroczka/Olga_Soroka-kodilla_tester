@@ -66,5 +66,10 @@ public class App {
         humanValidator.validAPerson(human1, 20, 180);
         humanValidator.validAPerson(human2, 40, 150.5);
 
+
+        //book
+        Book book = Book.of("Isaac Asimov", "The Galaxy");
+
+
     }
 }
