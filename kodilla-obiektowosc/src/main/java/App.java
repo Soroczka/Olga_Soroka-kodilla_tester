@@ -68,7 +68,8 @@ public class App {
 
 
         //book
-        Book book = Book.of("Isaac Asimov", "The Galaxy");
+        Book book = Book.valueOf("Isaac Asimov", "The Galaxy");
+        System.out.println("Author: "+book.getAuthor()+", title: "+ book.getTitle());
 
 
     }
