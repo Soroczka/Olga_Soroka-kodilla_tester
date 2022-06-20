@@ -19,7 +19,7 @@ public class App {
         boolean correctSub = ResultChecker.assertEquals(8, subResult);
         checkResult(subResult, correctSub);
 
-        double squaringResult = calculator.squares(20);
+        double squaringResult = calculator.involution(20, 2);
         boolean correctSquaring = ResultChecker.assertEquals(200, squaringResult);
         checkResult(squaringResult, correctSquaring);
 

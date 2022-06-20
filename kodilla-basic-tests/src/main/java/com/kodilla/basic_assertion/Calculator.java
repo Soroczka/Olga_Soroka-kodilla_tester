@@ -18,7 +18,7 @@ public class Calculator {
         return firstNumber - secondNumber;
     }
 
-    public double squares(int number){
-        return Math.pow(number, 2);
+    public double involution(double number, double power){
+        return Math.pow(number, power);
     }
 }
