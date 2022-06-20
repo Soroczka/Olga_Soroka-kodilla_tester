@@ -17,4 +17,8 @@ public class Calculator {
     public int subtractionOfTwoNumbers(int firstNumber, int secondNumber){
         return firstNumber - secondNumber;
     }
+
+    public double squares(int number){
+        return Math.pow(number, 2);
+    }
 }
