@@ -54,4 +54,9 @@ public class Student {
     public double getHistoryAverage() {
         return this.history.getAverage();
     }
+
+    public double getAverage() {
+        double sum = this.geography.getAverage() + this.physics.getAverage() + this.maths.getAverage() + this.history.getAverage();
+        return sum/4;
+    }
 }
