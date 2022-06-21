@@ -3,58 +3,85 @@ package com.kodilla.bank.homework;
 import java.util.ArrayList;
 
 public class Bank {
-    private ArrayList<CashMachine> cashMachines = new ArrayList<>();
-    private int balance;
+    private ArrayList<CashMachine> cashMachines;
 
     public Bank(ArrayList<CashMachine> realizedTransfers) {
         this.cashMachines = realizedTransfers;
+
     }
 
     public int getBalanceFromAllMachines(){
-        int sum = 0;
+        int actualMachinesBalance = 0;
         for (CashMachine cashMachine: cashMachines){
-            balance = cashMachine.getBalanceFromMachine();
-            sum += balance;
-            System.out.println(balance);
-            System.out.println(sum);
+            actualMachinesBalance += cashMachine.getCashMachineBalance();
         }
-        return sum;
+        return actualMachinesBalance;
     }
 
     public int getCountOfAllDebitTransfers(){
-        int sum = 0;
+        int count = 0;
+        ArrayList<Integer> realizedTransfers;
         for (CashMachine cashMachine: cashMachines){
-            sum+= cashMachine.getCountOfDebitTransfers();
+            realizedTransfers = cashMachine.getRealizedTransfers();
+            for (Integer realizedTransfer : realizedTransfers) {
+                if (realizedTransfer < 0) {
+                    count++;
+                }
+            }
         }
-        return sum;
+        return count;
     }
 
     public int getCountOfAllCreditTransfers(){
-        int sum = 0;
+        int count = 0;
+        ArrayList<Integer> realizedTransfers;
         for (CashMachine cashMachine: cashMachines){
-            sum+= cashMachine.getCountOfCreditTransfers();
+            realizedTransfers = cashMachine.getRealizedTransfers();
+            for (Integer realizedTransfer : realizedTransfers) {
+                if (realizedTransfer > 0) {
+                    count++;
+                }
+            }
         }
-        return sum;
+        return count;
     }
 
     public int averageOfAllDebitTransfers(){
         int sum = 0;
         int countOfTransfers = 0;
+        ArrayList<Integer> realizedTransfers;
         for (CashMachine cashMachine: cashMachines){
-            sum+= cashMachine.getSumOfDebitTransfers();
-            countOfTransfers+= cashMachine.getCountOfDebitTransfers();
+            realizedTransfers = cashMachine.getRealizedTransfers();
+            for (Integer realizedTransfer : realizedTransfers) {
+                if (realizedTransfer < 0) {
+                    sum += realizedTransfer;
+                    countOfTransfers++;
+                }
+            }
         }
-        return -sum/countOfTransfers;
+        if (countOfTransfers > 0){
+            return -sum/countOfTransfers;
+        }
+        return 0;
     }
 
     public int averageOfAllCreditTransfers(){
         int sum = 0;
         int countOfTransfers = 0;
+        ArrayList<Integer> realizedTransfers;
         for (CashMachine cashMachine: cashMachines){
-            sum+= cashMachine.getSumOfCreditTransfers();
-            countOfTransfers+= cashMachine.getCountOfCreditTransfers();
+            realizedTransfers = cashMachine.getRealizedTransfers();
+            for (Integer realizedTransfer : realizedTransfers) {
+                if (realizedTransfer > 0) {
+                    sum += realizedTransfer;
+                    countOfTransfers++;
+                }
+            }
         }
-        return sum/countOfTransfers;
+        if (countOfTransfers > 0){
+            return sum/countOfTransfers;
+        }
+        return 0;
     }
 
 }
