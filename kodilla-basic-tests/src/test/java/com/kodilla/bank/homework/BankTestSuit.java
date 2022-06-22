@@ -7,13 +7,12 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BankTestSuit {
-
+    ArrayList<CashMachine> cashMachines = new ArrayList<>();
+    Bank bank = new Bank(cashMachines);
 
     @Test
     public void shouldGetBalanceFromAllMachinesWhenTransfersProceed(){
         //Given
-        ArrayList<CashMachine> cashMachines = new ArrayList<>();
-        Bank bank = new Bank(cashMachines);
         ArrayList<Integer> realizedTransfers = new ArrayList<>();
         CashMachine cashMachine = new CashMachine(realizedTransfers, 1000);
         ArrayList<Integer> realizedTransfers2 = new ArrayList<>();
@@ -39,8 +38,6 @@ public class BankTestSuit {
     @Test
     public void shouldGetBalanceZero(){
         //Given
-        ArrayList<CashMachine> cashMachines = new ArrayList<>();
-        Bank bank = new Bank(cashMachines);
         ArrayList<Integer> realizedTransfers = new ArrayList<>();
         CashMachine cashMachine = new CashMachine(realizedTransfers, 1000);
         ArrayList<Integer> realizedTransfers2 = new ArrayList<>();
@@ -63,8 +60,6 @@ public class BankTestSuit {
     @Test
     public void shouldGetBalanceWhenAnyTransferProceed(){
         //Given
-        ArrayList<CashMachine> cashMachines = new ArrayList<>();
-        Bank bank = new Bank(cashMachines);
         ArrayList<Integer> realizedTransfers = new ArrayList<>();
         CashMachine cashMachine = new CashMachine(realizedTransfers, 50000);
         ArrayList<Integer> realizedTransfers2 = new ArrayList<>();
@@ -82,8 +77,6 @@ public class BankTestSuit {
     @Test
     public void shouldReturnCountZeroWhenAnyDebitTransferProceed(){
         //Given
-        ArrayList<CashMachine> cashMachines = new ArrayList<>();
-        Bank bank = new Bank(cashMachines);
         ArrayList<Integer> realizedTransfers = new ArrayList<>();
         CashMachine cashMachine = new CashMachine(realizedTransfers, 5000);
         ArrayList<Integer> realizedTransfers2 = new ArrayList<>();
@@ -103,8 +96,6 @@ public class BankTestSuit {
     @Test
     public void shouldReturnCountZeroWhenAnyCreditTransferProceed(){
         //Given
-        ArrayList<CashMachine> cashMachines = new ArrayList<>();
-        Bank bank = new Bank(cashMachines);
         ArrayList<Integer> realizedTransfers = new ArrayList<>();
         CashMachine cashMachine = new CashMachine(realizedTransfers, 50000);
         ArrayList<Integer> realizedTransfers2 = new ArrayList<>();
@@ -124,8 +115,6 @@ public class BankTestSuit {
     @Test
     public void shouldReturnCountOfAllCreditTransfers(){
         //Given
-        ArrayList<CashMachine> cashMachines = new ArrayList<>();
-        Bank bank = new Bank(cashMachines);
         ArrayList<Integer> realizedTransfers = new ArrayList<>();
         CashMachine cashMachine = new CashMachine(realizedTransfers, 5000);
         ArrayList<Integer> realizedTransfers2 = new ArrayList<>();
@@ -145,8 +134,6 @@ public class BankTestSuit {
     @Test
     public void shouldReturnCountOfAllDebitTransfers(){
         //Given
-        ArrayList<CashMachine> cashMachines = new ArrayList<>();
-        Bank bank = new Bank(cashMachines);
         ArrayList<Integer> realizedTransfers = new ArrayList<>();
         CashMachine cashMachine = new CashMachine(realizedTransfers, 50000);
         ArrayList<Integer> realizedTransfers2 = new ArrayList<>();
@@ -168,8 +155,6 @@ public class BankTestSuit {
     @Test
     public void shouldReturnAverageOfAllDebitTransfers(){
         //Given
-        ArrayList<CashMachine> cashMachines = new ArrayList<>();
-        Bank bank = new Bank(cashMachines);
         ArrayList<Integer> realizedTransfers = new ArrayList<>();
         CashMachine cashMachine = new CashMachine(realizedTransfers, 50000);
         ArrayList<Integer> realizedTransfers2 = new ArrayList<>();
@@ -191,8 +176,6 @@ public class BankTestSuit {
     @Test
     public void shouldReturnZeroWhenAnyDebitTransferProceed(){
         //Given
-        ArrayList<CashMachine> cashMachines = new ArrayList<>();
-        Bank bank = new Bank(cashMachines);
         ArrayList<Integer> realizedTransfers = new ArrayList<>();
         CashMachine cashMachine = new CashMachine(realizedTransfers, 5000);
         ArrayList<Integer> realizedTransfers2 = new ArrayList<>();
@@ -214,8 +197,6 @@ public class BankTestSuit {
     @Test
     public void shouldReturnAverageOfAllCreditTransfers(){
         //Given
-        ArrayList<CashMachine> cashMachines = new ArrayList<>();
-        Bank bank = new Bank(cashMachines);
         ArrayList<Integer> realizedTransfers = new ArrayList<>();
         CashMachine cashMachine = new CashMachine(realizedTransfers, 5000);
         ArrayList<Integer> realizedTransfers2 = new ArrayList<>();
@@ -235,8 +216,6 @@ public class BankTestSuit {
     @Test
     public void shouldReturnZeroWhenAnyCreditTransferProceed(){
         //Given
-        ArrayList<CashMachine> cashMachines = new ArrayList<>();
-        Bank bank = new Bank(cashMachines);
         ArrayList<Integer> realizedTransfers = new ArrayList<>();
         CashMachine cashMachine = new CashMachine(realizedTransfers, 50000);
         ArrayList<Integer> realizedTransfers2 = new ArrayList<>();
