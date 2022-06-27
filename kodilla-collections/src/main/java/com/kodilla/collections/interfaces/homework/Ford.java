@@ -23,4 +23,6 @@ public class Ford implements Car{
     public void decreaseSpeed(int acceleration) {
         actualSpeed -= acceleration;
     }
+
+
 }

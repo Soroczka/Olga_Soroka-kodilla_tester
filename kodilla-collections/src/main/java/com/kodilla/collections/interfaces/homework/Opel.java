@@ -3,8 +3,10 @@ package com.kodilla.collections.interfaces.homework;
 public class Opel implements Car{
     private int actualSpeed;
 
+
     public Opel(int actualSpeed) {
         this.actualSpeed = actualSpeed;
+
     }
 
     @Override
@@ -21,4 +23,6 @@ public class Opel implements Car{
     public void decreaseSpeed(int acceleration) {
         actualSpeed -= acceleration;
     }
+
+
 }
