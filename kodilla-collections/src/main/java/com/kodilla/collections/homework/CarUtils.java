@@ -1,8 +1,5 @@
 package com.kodilla.collections.homework;
 
-import com.kodilla.collections.interfaces.Circle;
-import com.kodilla.collections.interfaces.Square;
-import com.kodilla.collections.interfaces.Triangle;
 import com.kodilla.collections.interfaces.homework.Car;
 import com.kodilla.collections.interfaces.homework.Ford;
 import com.kodilla.collections.interfaces.homework.Opel;
