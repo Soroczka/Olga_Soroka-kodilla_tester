@@ -3,6 +3,7 @@ package com.kodilla.collections.adv.maps.homework;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SchoolDirectory {
@@ -15,7 +16,7 @@ public class SchoolDirectory {
 
         School tac = new School("The American Collage", Arrays.asList(10, 12, 11, 14, 13));
         School ace = new School("American Collage of Education", Arrays.asList(20, 18, 15, 14, 19));
-        School auw = new School("American Collage in Washington", Arrays.asList(22, 30, 28, 32));
+        School auw = new School("American Collage in Washington", List.of(22, 30, 28, 32));
 
         principalsInSchools.put(smith, tac);
         principalsInSchools.put(stone, ace);
