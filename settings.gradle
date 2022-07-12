@@ -7,4 +7,5 @@ include 'kodilla-collections'
 include 'kodilla-collections-advanced'
 include 'kodilla-collections-advanced'
 include 'kodilla-collections-advanced'
+include 'kodilla-stream'
 

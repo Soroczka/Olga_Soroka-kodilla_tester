@@ -13,6 +13,24 @@ public class BookManager {
         return new Book(title, author);
     }
 
+    public static Book addBook(String title, String author){
+        Book newBook = createBook(title, author);
+        if (books.size() == 0){
+            books.add(newBook);
+        } else {
+            for (int i = 0; i < books.size(); i++){
+                if (books.get(i).equals(newBook)){
+                    System.out.println("You cannot add the book to the collection. Reason: Book exists in the list.");
+                    return null;
+                } else {
+                    books.add(newBook);
+                }
+            }
+        }
+        return newBook;
+
+    }
+
 
 
 }
