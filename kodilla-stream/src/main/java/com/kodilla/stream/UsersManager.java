@@ -9,6 +9,8 @@ public class UsersManager {
 //        System.out.println(chemistGroupUsernames);
         List <User> users = filterUsersOlderThan(40);
         System.out.println(users);
+        List <String> posts = filterPostsSmallerThan(5);
+        System.out.println(posts);
         //processUsersStream();
     }
 
@@ -38,11 +40,24 @@ public class UsersManager {
         return users;
     }
 
+    public static List<String> filterPostsSmallerThan(int number){
+        List<String> usersPosts = UsersRepository.getUsersList()
+                .stream()
+                .filter(user -> user.getNumberOfPost() > number)
+                .map(UsersManager::getUserAndPost)
+                .collect(Collectors.toList());
+        return usersPosts;
+    }
+
 
 
     public static String getUserName(User user) {
         return user.getUsername();
     }
 
+
+    public static String getUserAndPost(User user) {
+        return user.getUsername() + "has " + user.getNumberOfPost() + " posts";
+    }
 
 }

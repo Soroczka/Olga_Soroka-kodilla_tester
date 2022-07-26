@@ -61,4 +61,15 @@ class UsersManagerTest {
         }
 
     }
+
+    @Test
+    void testIsReturnListOfUsersWithNumberOfPostsSmallerThan5(){
+        //Given
+        int numberOfPosts = 5;
+        //When
+        List<String> usersPosts = UsersManager.filterPostsSmallerThan(numberOfPosts);
+        int result = usersPosts.size();
+        //Then
+        assertEquals(3, result);
+    }
 }
