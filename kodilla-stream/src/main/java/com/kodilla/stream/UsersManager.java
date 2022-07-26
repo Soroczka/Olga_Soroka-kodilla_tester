@@ -10,7 +10,7 @@ public class UsersManager {
         //processUsersStream();
     }
 
-    private static List<String> filterChemistGroupUsernames() {
+    public static List<String> filterChemistGroupUsernames() {
         List<String> usernames =UsersRepository.getUsersList()
                 .stream()
                 .filter(user ->user.getGroup().equals("Chemists"))
@@ -24,7 +24,7 @@ public class UsersManager {
                 .stream()
                 .filter(user -> user.getGroup().equals("Chemists"))
                 //.map(user -> user.getUsername()) //wyrażenie lambda
-                .map(UsersManager::getUserName)  //referencja do metody gdy istnieje metoda ponizej getUserName
+                .map(UsersManager::getUserName)  //referencja do metody gdy istnieje metoda ponizej: getUserName
                 .forEach(username -> System.out.println(username));
     }
 
@@ -32,4 +32,6 @@ public class UsersManager {
     public static String getUserName(User user) {
         return user.getUsername();
     }
+
+
 }
