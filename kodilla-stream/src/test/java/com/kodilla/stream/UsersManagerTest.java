@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class UsersManagerTest {
     @Test
@@ -17,7 +18,7 @@ class UsersManagerTest {
         //When
         List<String> result = UsersManager.filterChemistGroupUsernames();
         //Then
-        assertEquals(result.size(), chemistGroupUsernames.size());
+        assertEquals(chemistGroupUsernames.size(), result.size());
     }
 
     @Test
@@ -32,7 +33,32 @@ class UsersManagerTest {
         String chemist1 = result.get(0);
         String chemist2 = result.get(1);
         //Then
-        assertEquals(chemist1, userName1);
-        assertEquals(chemist2, userName2);
+        assertEquals(userName1, chemist1);
+        assertEquals(userName2, chemist2);
+    }
+
+    @Test
+    void testIsReturnListOfUsersOlderAndEqual49(){
+        //Given
+        //When
+        List<User> result = UsersManager.filterUsersOlderThan(49);
+        int value = result.size();
+        //Then
+        assertEquals(3, value);
+    }
+
+    @Test
+    void testIsEachReturnedUserIsOlderOrEqual49(){
+        //Given
+        int expectedAge = 49;
+        //When
+        List<User> result = UsersManager.filterUsersOlderThan(expectedAge);
+        int value = result.size();
+        //Then
+        for (User user: result){
+            int age = user.getAge();
+            assertTrue(age >= expectedAge);
+        }
+
     }
 }
