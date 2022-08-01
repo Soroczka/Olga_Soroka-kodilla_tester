@@ -7,8 +7,8 @@ public class UsersManager {
     public static void main(String[] args) {
 //        List<String> chemistGroupUsernames = filterChemistGroupUsernames();
 //        System.out.println(chemistGroupUsernames);
-        List <User> users = filterUsersOlderThan(40);
-        System.out.println(users);
+//        List <User> users = filterUsersOlderThan(40);
+//        System.out.println(users);
         List <String> posts = filterPostsSmallerThan(5);
         System.out.println(posts);
         //processUsersStream();
@@ -57,7 +57,7 @@ public class UsersManager {
 
 
     public static String getUserAndPost(User user) {
-        return user.getUsername() + "has " + user.getNumberOfPost() + " posts";
+        return user.getUsername() + " has " + user.getNumberOfPost() + " posts";
     }
 
 }
