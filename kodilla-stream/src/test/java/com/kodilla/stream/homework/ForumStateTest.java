@@ -57,4 +57,47 @@ public class ForumStateTest {
         Assertions.assertEquals(sum/counter, average,0.001);
     }
 
+    @Test
+    public void testPostAverageForUsersYoungerThan40WhenNoUsersInTheAgeOnTheList() {
+        //Given
+        List<User> users = new ArrayList<>();
+        users.add(new User("Walter White", 50, 234, "Chemists"));
+        users.add(new User("Jessie Pinkman", 55, 5000, "Sales"));
+        users.add(new User("Tuco Salamanca", 40, 77, "Manager"));
+        double sum = 0;
+        int counter = 0;
+        for(User user: users){
+            if (user.getAge()<40){
+                sum += user.getNumberOfPost();
+                counter++;
+            }
+        }
+        //When
+        double average = ForumStats.postsAverageForUsersYoungerThan40(users);
+        //Then
+        Assertions.assertEquals(0, average);
+    }
+
+    @Test
+    public void testPostAverageForUserOlderEquals40WhenNoUsersInTheAgeOnTheList() {
+        //Given
+        List<User> users = new ArrayList<>();
+        users.add(new User("Walter White", 39, 234, "Chemists"));
+        users.add(new User("Jessie Pinkman", 22, 5000, "Sales"));
+        users.add(new User("Tuco Salamanca", 18, 77, "Manager"));
+        double sum = 0;
+        int counter = 0;
+        for(User user: users){
+            if (user.getAge()>=40){
+                sum += user.getNumberOfPost();
+                counter++;
+            }
+        }
+        //When
+        double average = ForumStats.postsAverageForUsersOlderAndEqualThan40(users);
+        //Then
+        Assertions.assertEquals(0, average);
+    }
+
+
 }
