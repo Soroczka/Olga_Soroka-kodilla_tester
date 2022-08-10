@@ -21,31 +21,24 @@ public class Warehouse {
         return orders.get(1);
     }
 
-    public Order getOrder(String number) throws OrderDoesntExistException {
-        return orders.stream()
+        public Order getOrder(String number) throws OrderDoesntExistException {
+        try {
+            return orders.stream()
                 .filter(o -> o.getNumber().equals(number))
                 .findFirst()
                 .orElseThrow(OrderDoesntExistException::new);
-
+        }
+        catch (OrderDoesntExistException e) {
+            System.out.println("Order does not exist");
+            return null;
+        }
+        finally {
+            System.out.println("Was searching for number: " +number);
+        }
     }
 
 
-//    public static Order getOrder(String number){
-//        orders.stream()
-//                .filter(o -> o.getNumber().equals(number))
-//                .collect(Collectors.toList());
-//
-//       return orders.get(1);
-//
-//    }
 
 
-//    public static Order getOrder(String number) {
-//        Order order = orders.stream()
-//                .filter(o -> o.getNumber().equals(number))
-//                .findFirst()
-//                .orElse(null);
-//        return order;
-//
-//    }
+
 }
