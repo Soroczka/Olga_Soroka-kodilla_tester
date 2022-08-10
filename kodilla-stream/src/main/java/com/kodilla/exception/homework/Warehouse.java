@@ -17,11 +17,7 @@ public class Warehouse {
         orders.add(order);
     }
 
-    public Order getFirstElement(List<Order> orders) throws OrderDoesntExistException{
-        return orders.get(1);
-    }
-
-        public Order getOrder(String number) throws OrderDoesntExistException {
+    public Order getOrder(String number) throws OrderDoesntExistException {
         try {
             return orders.stream()
                 .filter(o -> o.getNumber().equals(number))
