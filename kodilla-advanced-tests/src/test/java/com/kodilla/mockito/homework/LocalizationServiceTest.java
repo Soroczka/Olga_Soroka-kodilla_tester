@@ -116,7 +116,20 @@ class LocalizationServiceTest {
     }
 
     @Test
-    void removeLocalization() {
+    void clientsShouldntReceiveNotificationForDeletedLocalization() {
+        addSubscribersToLocalization(localization, secondClient);
+        addSubscribersToLocalization(localization, thirdClient);
+        addSubscribersToLocalization(secondLocalization, client);
+        addSubscribersToLocalization(secondLocalization, thirdClient);
+        addSubscribersToLocalization(thirdLocalization, thirdClient);
+
+        localizationService.removeLocalization(localization);
+        localizationService.sendNotificationToGroup(notification, localization);
+        localizationService.sendNotificationToGroup(notification, secondLocalization);
+        localizationService.sendNotificationToGroup(notification, thirdLocalization);
+        Mockito.verify(client, Mockito.times(1)).receive(notification);
+        Mockito.verify(thirdClient, Mockito.times(2)).receive(notification);
+        Mockito.verify(secondClient, Mockito.never()).receive(notification);
     }
 
     void addSubscribersToLocalization(Localization localization, Client client) {
