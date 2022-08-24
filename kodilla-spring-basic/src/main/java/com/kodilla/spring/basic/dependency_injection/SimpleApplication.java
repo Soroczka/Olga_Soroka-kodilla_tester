@@ -1,20 +1,27 @@
 package com.kodilla.spring.basic.dependency_injection;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class SimpleApplication {
 
-    private MessageService messageService;
+    @Autowired
+    private SkypeMessageService messageService;
 
-    public SimpleApplication(MessageService messageService) {
-        this.messageService = messageService;
-    }
-
-    public void processMessage(String message, String receiver) {
+    public String processMessage(String message, String receiver) {
         if (checkReceiver(receiver)) {
-            this.messageService.send(message, receiver);
+            return this.messageService.send(message, receiver);
         }
+        return null;
     }
 
     private boolean checkReceiver(String receiver) {
         return receiver != null && !receiver.isEmpty();
+    }
+
+    @Autowired
+    public void setMessageService(SkypeMessageService messageService) {
+        this.messageService = messageService;
     }
 }
