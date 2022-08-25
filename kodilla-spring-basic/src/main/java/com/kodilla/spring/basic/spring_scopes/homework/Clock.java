@@ -12,5 +12,6 @@ public class Clock {
     private LocalTime time;
     public Clock() {
         time = LocalTime.now();
+        System.out.println(time);
     }
 }
