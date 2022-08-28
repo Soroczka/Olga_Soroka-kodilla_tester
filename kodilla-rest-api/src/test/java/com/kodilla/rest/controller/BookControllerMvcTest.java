@@ -1,5 +1,6 @@
 package com.kodilla.rest.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kodilla.rest.domain.BookDto;
 import com.kodilla.rest.service.BookService;
 import org.hamcrest.Matchers;
@@ -18,12 +19,16 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jdk.javadoc.internal.doclets.formats.html.markup.HtmlStyle.title;
+import static org.springframework.web.servlet.function.RequestPredicates.contentType;
+
 @ExtendWith(MockitoExtension.class)
 @WebMvcTest(BookController.class)
 public class BookControllerMvcTest {
 
     @Autowired
     private MockMvc mockMvc;
+    private ObjectMapper objectMapper;
 
     @MockBean
     private BookService bookService;
@@ -41,6 +46,22 @@ public class BookControllerMvcTest {
                 .andExpect(MockMvcResultMatchers.status().is(200))
                 .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(2)));
     }
+
+    @Test
+    void shouldAddBook() throws Exception{
+
+        //given
+        BookDto book = new BookDto("Title 1", "Author 1");
+        bookService.addBook(book);
+        Mockito.verify(bookService, Mockito.times(1)).addBook((new BookDto("Title 1", "Author 1")));
+        //when & then
+        mockMvc.perform(MockMvcRequestBuilders.post("/books").param("title", "Title 1").param("author", "Author 1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().is(201))
+                .andReturn();
+
+    }
+
 
 
 
