@@ -1,6 +1,9 @@
 package com.kodilla.rest.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.google.gson.Gson;
 import com.kodilla.rest.domain.BookDto;
 import com.kodilla.rest.service.BookService;
 import org.hamcrest.Matchers;
@@ -49,19 +52,24 @@ public class BookControllerMvcTest {
 
     @Test
     void shouldAddBook() throws Exception{
-
         //given
         BookDto book = new BookDto("Title 1", "Author 1");
         bookService.addBook(book);
-        Mockito.verify(bookService, Mockito.times(1)).addBook((new BookDto("Title 1", "Author 1")));
+        Mockito.verify(bookService, Mockito.times(1)).addBook(book);
         //when & then
-        mockMvc.perform(MockMvcRequestBuilders.post("/books").param("title", "Title 1").param("author", "Author 1")
+        mockMvc.perform(MockMvcRequestBuilders.post("/books").content(asJsonString(book))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().is(201))
+                .andExpect(MockMvcResultMatchers.status().is(200))
                 .andReturn();
 
     }
-
+    public static String asJsonString(final Object obj) {
+        try {
+            return new ObjectMapper().writeValueAsString(obj);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
 
