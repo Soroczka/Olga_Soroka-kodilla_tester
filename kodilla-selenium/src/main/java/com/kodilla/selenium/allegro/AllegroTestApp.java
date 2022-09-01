@@ -29,14 +29,13 @@ public class AllegroTestApp {
         driver.findElement(By.cssSelector("input[data-role='search-input']")).sendKeys("Mavic mini");
         driver.findElement(By.className(".b1vwg")).submit();
         //pobieranie listy elementów
-        List<WebElement> elements = new ArrayList<>();
-        elements = driver.findElements(By.cssSelector("section>article"));
+        List<WebElement> elements = driver.findElements(By.cssSelector("section>article"));
         for (WebElement element: elements){
             System.out.println(element.getText());
         }
 
 
-        //dla e-baya
+//        ////dla e-baya
 //        System.setProperty("webdriver.chrome.driver", "C:\\selenium-drivers\\Chrome\\chromedriver.exe");
 //        WebDriver driver = new ChromeDriver();
 //        WebDriverWait wait = new WebDriverWait(driver, 15);
@@ -45,13 +44,12 @@ public class AllegroTestApp {
 //        driver.switchTo().frame(0);
 //        driver.findElement(By.id("gdpr-banner-accept")).click();
 //        WebElement categoryCombo = driver.findElement(
-//                By.xpath("//*[@id=\"gh-cat-td\"]/div/select"));
+//                By.id("gh-cat"));
 //        Select categorySelect = new Select(categoryCombo);
 //        categorySelect.selectByVisibleText("Fotografia i Kamery");
-//        driver.findElement(By.xpath("//*[@id=\"gh-ac-box\"]/div/input[1]")).sendKeys("Mavic mini");
-//        driver.findElement(By.xpath("//*[@id=\"gh-f\"]/table/tbody/tr/td[3]/input")).submit();
-//        List<WebElement> elements = new ArrayList<>();
-//        elements = driver.findElements(By.cssSelector("ul > li > div > div.s-item__info.clearfix > a > .s-item__title > span"));
+//        driver.findElement(By.id("gh-ac")).sendKeys("Mavic mini");
+//        driver.findElement(By.id("gh-btn")).submit();
+//        List<WebElement> elements = driver.findElements(By.cssSelector("ul > li > div > div.s-item__info.clearfix > a > .s-item__title > span"));
 //        for (WebElement element: elements){
 //            System.out.println(element.getText());
 //        }
