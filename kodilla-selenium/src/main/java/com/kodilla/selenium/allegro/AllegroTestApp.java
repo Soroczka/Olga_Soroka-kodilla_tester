@@ -8,6 +8,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AllegroTestApp {
 
     public static void main(String[] args) {
@@ -15,14 +18,23 @@ public class AllegroTestApp {
         System.setProperty("webdriver.chrome.driver", "C:\\selenium-drivers\\Chrome\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        driver.get("https://allegro.pl");
+        driver.get("https://allegro.pl/");
+        //cookies
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"opbox-gdpr-consents-modal\"]/div/div[2]/div/div[2]/button[1]")));
         driver.findElement(By.xpath("//*[@id=\"opbox-gdpr-consents-modal\"]/div/div[2]/div/div[2]/button[1]")).click();
-        WebElement categoryCombo = driver.findElement(By.xpath("//*[@data-box-id=\"h4GzErVDTJybCQTEmPd4NA==MGW2gATtQkKizzQ2dQGp-A==\"]/div/form/div[3]/div/select"));
+        //wyszukiwanie
+        WebElement categoryCombo = driver.findElement(By.cssSelector(".mp7g_oh > select[class*='mr3m_1']"));
         Select categorySelect = new Select(categoryCombo);
         categorySelect.selectByVisibleText("Elektronika");
-        driver.findElement(By.xpath("//*[@data-box-id=\"h4GzErVDTJybCQTEmPd4NA==MGW2gATtQkKizzQ2dQGp-A==\"]/div/form/input")).sendKeys("Mavic mini");
-        driver.findElement(By.xpath("//*[@data-box-id=\"h4GzErVDTJybCQTEmPd4NA==MGW2gATtQkKizzQ2dQGp-A==\"]/div/form/button")).submit();
+        driver.findElement(By.cssSelector("input[data-role='search-input']")).sendKeys("Mavic mini");
+        driver.findElement(By.className(".b1vwg")).submit();
+        //pobieranie listy elementów
+        List<WebElement> elements = new ArrayList<>();
+        elements = driver.findElements(By.cssSelector("section>article"));
+        for (WebElement element: elements){
+            System.out.println(element.getText());
+        }
+
 
         //dla e-baya
 //        System.setProperty("webdriver.chrome.driver", "C:\\selenium-drivers\\Chrome\\chromedriver.exe");
