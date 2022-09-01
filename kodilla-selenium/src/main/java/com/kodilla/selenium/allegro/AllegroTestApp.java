@@ -39,7 +39,7 @@ public class AllegroTestApp {
         //dla e-baya
 //        System.setProperty("webdriver.chrome.driver", "C:\\selenium-drivers\\Chrome\\chromedriver.exe");
 //        WebDriver driver = new ChromeDriver();
-//        WebDriverWait wait = new WebDriverWait(driver, 10);
+//        WebDriverWait wait = new WebDriverWait(driver, 15);
 //        driver.get("https://www.ebay.pl/");
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("gdpr-banner-accept")));
 //        driver.switchTo().frame(0);
@@ -50,5 +50,10 @@ public class AllegroTestApp {
 //        categorySelect.selectByVisibleText("Fotografia i Kamery");
 //        driver.findElement(By.xpath("//*[@id=\"gh-ac-box\"]/div/input[1]")).sendKeys("Mavic mini");
 //        driver.findElement(By.xpath("//*[@id=\"gh-f\"]/table/tbody/tr/td[3]/input")).submit();
+//        List<WebElement> elements = new ArrayList<>();
+//        elements = driver.findElements(By.cssSelector("ul > li > div > div.s-item__info.clearfix > a > .s-item__title > span"));
+//        for (WebElement element: elements){
+//            System.out.println(element.getText());
+//        }
     }
 }
