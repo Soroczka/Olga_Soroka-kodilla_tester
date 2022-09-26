@@ -9,7 +9,7 @@ public class Order {
         this.number = number;
     }
 
-    public String getNumber(){
+    public String getNumber() {
         return number;
     }
 

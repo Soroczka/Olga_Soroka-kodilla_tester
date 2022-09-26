@@ -27,7 +27,7 @@ class WarehouseTestSuite {
         //When
         warehouse.addOrder(order1);
         //Then
-        assertEquals(4, orders.size());
+        assertEquals(7, orders.size());
     }
 
     @Test
@@ -42,11 +42,12 @@ class WarehouseTestSuite {
     }
 
     @Test
-    void checkIsOrderExistsInListWhenShouldnt() throws OrderDoesntExistException {
+    void checkIsOrderDoesntExistExceptionWillThrowWhenOrderDoesNotExist() throws OrderDoesntExistException {
         //Given
         WarehouseTestSuite.initializeOrders();
         //When
         //Then
-        //assertThrows(OrderDoesntExistException.class, () -> warehouse.getOrder("33345"));
+        assertThrows(OrderDoesntExistException.class, () -> warehouse.getOrder("33345"));
     }
+
 }

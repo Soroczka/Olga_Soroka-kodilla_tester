@@ -17,21 +17,31 @@ public class Warehouse {
         orders.add(order);
     }
 
+//    public Order getOrder(String number) throws OrderDoesntExistException {
+//        try {
+//            return orders.stream()
+//                .filter(o -> o.getNumber().equals(number))
+//                .findFirst()
+//                .orElseThrow(OrderDoesntExistException::new);
+//        }
+//        catch (OrderDoesntExistException e) {
+//            System.out.println("Order does not exist");
+//            return null;
+//        }
+//        finally {
+//            System.out.println("Was searching for number: " +number);
+//        }
+//    }
+
     public Order getOrder(String number) throws OrderDoesntExistException {
-        try {
+
             return orders.stream()
-                .filter(o -> o.getNumber().equals(number))
-                .findFirst()
-                .orElseThrow(OrderDoesntExistException::new);
-        }
-        catch (OrderDoesntExistException e) {
-            System.out.println("Order does not exist");
-            return null;
-        }
-        finally {
-            System.out.println("Was searching for number: " +number);
-        }
+                    .filter(o -> o.getNumber().equals(number))
+                    .findFirst()
+                    .orElseThrow(OrderDoesntExistException::new);
+
     }
+
 
 
 
