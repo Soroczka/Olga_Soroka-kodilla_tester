@@ -42,7 +42,7 @@ class WarehouseTestSuite {
     }
 
     @Test
-    void checkIsOrderDoesntExistExceptionWillThrowWhenOrderDoesNotExist() throws OrderDoesntExistException {
+    void checkIsOrderDoesntExistExceptionWillThrowWhenOrderDoesNotExist() {
         //Given
         WarehouseTestSuite.initializeOrders();
         //When
